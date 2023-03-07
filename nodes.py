@@ -18,14 +18,14 @@ class Text_node(Node):
 
     def __init__(self, data: str):
         self.data = data
-        super().__init__(Type.TEXT, [])
+        super().__init__(Type.TEXT.name, [])
 
 class Element_node(Node):
    tag_name: str
    attributes: dict[str, str]
 
    def __init__(self, name: str, attr: dict[str, str]):
-       super().__init__(Type.ELEMENT, [])
+       super().__init__(Type.ELEMENT.name, [])
 
        self.tag_name = name
        self.attributes = attr
