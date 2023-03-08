@@ -1,17 +1,20 @@
-from nodes import Type
+def traversDom(node: Node, depth: int = 1) -> None :
+    if node == None:
+        return
 
-def print_node(node):
+    print_node(node, depth)
+
+    for child in node.children:
+        traversDom(child, depth + 1)
+
+    
+
+def print_node(node: Node, depth: int) -> None :
     obj_attrs = node.__dict__
 
-    output = ""
-    for key in obj_attrs:
-        output += f"-- {key} : {obj_attrs[key]}\n" 
-        if key == "children":
-            for val in obj_attrs[key]:
-                output += f"  -- {val}\n"
-        elif key == "attributes":
-            for attr_key in obj_attrs[key]:
-                output += f"-- {attr_key}"
+    print("-"*depth, end="")
 
-    print(output)
-
+    if obj_attrs['node_type'] == 'ELEMENT':
+        print(obj_attrs['tag_name'])
+    else:
+        print('#' + obj_attrs['node_type'] + ' ' + obj_attrs['data'])
