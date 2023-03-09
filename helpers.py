@@ -1,3 +1,5 @@
+from nodes import Node
+
 def traversDom(node: Node, depth: int = 1) -> None :
     if node == None:
         return
@@ -10,6 +12,7 @@ def traversDom(node: Node, depth: int = 1) -> None :
     
 
 def print_node(node: Node, depth: int) -> None :
+    # Get all the attributes of the node object as dict
     obj_attrs = node.__dict__
 
     print("-"*depth, end="")
